@@ -67,6 +67,82 @@ def cartoonify(ImagePath):
     fig, axes = plt.subplots(3,2, figsize=(8,8), subplot_kw={'xticks':[], 'yticks':[]}, gridspec_kw=dict(hspace=0.1, wspace=0.1))
     for i, ax in enumerate(axes.flat):
         ax.imshow(images[i], cmap='gray')
+       
+    save_gray=Button(top,text="Save grayscaled image",command=lambda: save1(ReSized2, ImagePath),padx=30,pady=5)
+    save_gray.configure(background='#3e2945', foreground='white',font=('Arial',16,'bold'))
+    save_gray.pack(side=TOP,pady=0)
 
+    save_blurredgray=Button(top,text="Save grayscale image blurred",command=lambda: save2(ReSized3, ImagePath),padx=30,pady=5)
+    save_blurredgray.configure(background='#3e2945', foreground='white',font=('Arial',16,'bold'))
+    save_blurredgray.pack(side=TOP,pady=0)
+        
+    save_sketch=Button(top,text="Save sketched image",command=lambda: save3(ReSized4, ImagePath),padx=30,pady=5)
+    save_sketch.configure(background='#3e2945', foreground='white',font=('Arial',16,'bold'))
+    save_sketch.pack(side=TOP,pady=0)
+        
+    save_blurredorig=Button(top,text="Save original image blurred",command=lambda: save4(ReSized5, ImagePath),padx=30,pady=5)
+    save_blurredorig.configure(background='#3e2945', foreground='white',font=('Arial',16,'bold'))
+    save_blurredorig.pack(side=TOP,pady=0)
+        
+    save_tonnd=Button(top,text="Save toon'd image",command=lambda: save5(ReSized6, ImagePath),padx=30,pady=5)
+    save_tonnd.configure(background='#3e2945', foreground='white',font=('Arial',16,'bold'))
+    save_tonnd.pack(side=TOP,pady=0)
+        
+    plt.show()
+    
+    
+def save1(ReSized2, ImagePath):
+    #saving an image using imwrite()
+    newName="grayscale edit"
+    path1 = os.path.dirname(ImagePath)
+    extension=os.path.splitext(ImagePath)[1]
+    path = os.path.join(path1, newName+extension)
+    cv2.imwrite(path, cv2.cvtColor(ReSized2, cv2.COLOR_RGB2BGR))
+    I= "Image saved by name " + newName +" at "+ path
+    tk.messagebox.showinfo(title=None, message=I)
+    
+def save2(ReSized3, ImagePath):
+    #saving an image using imwrite()
+    newName="blurred grayscale edit"
+    path1 = os.path.dirname(ImagePath)
+    extension=os.path.splitext(ImagePath)[1]
+    path = os.path.join(path1, newName+extension)
+    cv2.imwrite(path, cv2.cvtColor(ReSized3, cv2.COLOR_RGB2BGR))
+    I= "Image saved by name " + newName +" at "+ path
+    tk.messagebox.showinfo(title=None, message=I)
+    
+def save3(ReSized4, ImagePath):
+    #saving an image using imwrite()
+    newName="sketched edit"
+    path1 = os.path.dirname(ImagePath)
+    extension=os.path.splitext(ImagePath)[1]
+    path = os.path.join(path1, newName+extension)
+    cv2.imwrite(path, cv2.cvtColor(ReSized4, cv2.COLOR_RGB2BGR))
+    I= "Image saved by name " + newName +" at "+ path
+    tk.messagebox.showinfo(title=None, message=I)
+    
+def save4(ReSized5, ImagePath):
+    #saving an image using imwrite()
+    newName="blurred original edit"
+    path1 = os.path.dirname(ImagePath)
+    extension=os.path.splitext(ImagePath)[1]
+    path = os.path.join(path1, newName+extension)
+    cv2.imwrite(path, cv2.cvtColor(ReSized5, cv2.COLOR_RGB2BGR))
+    I= "Image saved by name " + newName +" at "+ path
+    tk.messagebox.showinfo(title=None, message=I)
+    
+def save5(ReSized6, ImagePath):
+    #saving an image using imwrite()
+    newName="blurred original edit"
+    path1 = os.path.dirname(ImagePath)
+    extension=os.path.splitext(ImagePath)[1]
+    path = os.path.join(path1, newName+extension)
+    cv2.imwrite(path, cv2.cvtColor(ReSized6, cv2.COLOR_RGB2BGR))
+    I= "Image saved by name " + newName +" at "+ path
+    tk.messagebox.showinfo(title=None, message=I)
 
+upload=Button(top,text="Select image",command=upload,padx=10,pady=5)
+upload.configure(background='#3e2945', foreground='white',font=('Arial',16,'bold'))
+upload.pack(side=TOP,pady=50)
 
+top.mainloop()
