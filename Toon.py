@@ -76,23 +76,23 @@ def cartoonify(ImagePath):
     for i, ax in enumerate(axes.flat):
         ax.imshow(images[i], cmap='gray')
        
-    save_gray=Button(top,text="Save grayscaled image",command=lambda: save1(ReSized2, ImagePath),padx=30,pady=5)
+    save_gray=Button(top,text="Save Grayscaled",command=lambda: save1(ReSized2, ImagePath),padx=30,pady=5)
     save_gray.configure(background='#3e2945', foreground='white',font=('Arial',16,'bold'))
     save_gray.pack(side=TOP,pady=10)
 
-    save_blurredgray=Button(top,text="Save grayscale image blurred",command=lambda: save2(ReSized3, ImagePath),padx=30,pady=5)
+    save_blurredgray=Button(top,text="Save Blurred Grayscale",command=lambda: save2(ReSized3, ImagePath),padx=30,pady=5)
     save_blurredgray.configure(background='#3e2945', foreground='white',font=('Arial',16,'bold'))
     save_blurredgray.pack(side=TOP,pady=10)
         
-    save_sketch=Button(top,text="Save sketched image",command=lambda: save3(ReSized4, ImagePath),padx=30,pady=5)
+    save_sketch=Button(top,text="Save Sketch",command=lambda: save3(ReSized4, ImagePath),padx=30,pady=5)
     save_sketch.configure(background='#3e2945', foreground='white',font=('Arial',16,'bold'))
     save_sketch.pack(side=TOP,pady=10)
         
-    save_blurredorig=Button(top,text="Save original image blurred",command=lambda: save4(ReSized5, ImagePath),padx=30,pady=5)
+    save_blurredorig=Button(top,text="Save Blurred Original",command=lambda: save4(ReSized5, ImagePath),padx=30,pady=5)
     save_blurredorig.configure(background='#3e2945', foreground='white',font=('Arial',16,'bold'))
     save_blurredorig.pack(side=TOP,pady=10)
         
-    save_tonnd=Button(top,text="Save toon'd image",command=lambda: save5(ReSized6, ImagePath),padx=30,pady=5)
+    save_tonnd=Button(top,text="Save Toon'd",command=lambda: save5(ReSized6, ImagePath),padx=30,pady=5)
     save_tonnd.configure(background='#3e2945', foreground='white',font=('Arial',16,'bold'))
     save_tonnd.pack(side=TOP,pady=10)
    
@@ -151,7 +151,5 @@ def save5(ReSized6, ImagePath):
     cv2.imwrite(path, cv2.cvtColor(ReSized6, cv2.COLOR_RGB2BGR))
     I= "Image saved by name " + newName +" at "+ path
     tk.messagebox.showinfo(title=None, message=I)
- 
-
 
 top.mainloop()
