@@ -12,15 +12,23 @@ from tkinter import *
 from PIL import ImageTk, Image
 
 top=tk.Tk()
-top.geometry('350x800')
+top.geometry('425x600')
+top.resizable(0,0)
 top.title('Toon')
-top.configure(background='#91b1e3')
+top.configure(background='#9c9c9c')
 label=Label(top,background='#CDCDCD', font=('calibri',20,'bold'))
+
+    #top of app.\
+greet=Label(top, text="Welcome to the Image Cartoonifier", fg='red', bg='#9c9c9c', font=("Helvetica", 16, 'bold'))
+greet.place(x=45,y=10)
 
 def upload():
     ImagePath=easygui.fileopenbox()
     cartoonify(ImagePath)
 
+upload=Button(top,text="Select image",command=upload,padx=10,pady=5)
+upload.configure(background='#449656', foreground='white',font=('Arial',16,'bold'))
+upload.pack(side=TOP,pady=50)
 
 def cartoonify(ImagePath):
     # read the image
@@ -70,24 +78,27 @@ def cartoonify(ImagePath):
        
     save_gray=Button(top,text="Save grayscaled image",command=lambda: save1(ReSized2, ImagePath),padx=30,pady=5)
     save_gray.configure(background='#3e2945', foreground='white',font=('Arial',16,'bold'))
-    save_gray.pack(side=TOP,pady=0)
+    save_gray.pack(side=TOP,pady=10)
 
     save_blurredgray=Button(top,text="Save grayscale image blurred",command=lambda: save2(ReSized3, ImagePath),padx=30,pady=5)
     save_blurredgray.configure(background='#3e2945', foreground='white',font=('Arial',16,'bold'))
-    save_blurredgray.pack(side=TOP,pady=0)
+    save_blurredgray.pack(side=TOP,pady=10)
         
     save_sketch=Button(top,text="Save sketched image",command=lambda: save3(ReSized4, ImagePath),padx=30,pady=5)
     save_sketch.configure(background='#3e2945', foreground='white',font=('Arial',16,'bold'))
-    save_sketch.pack(side=TOP,pady=0)
+    save_sketch.pack(side=TOP,pady=10)
         
     save_blurredorig=Button(top,text="Save original image blurred",command=lambda: save4(ReSized5, ImagePath),padx=30,pady=5)
     save_blurredorig.configure(background='#3e2945', foreground='white',font=('Arial',16,'bold'))
-    save_blurredorig.pack(side=TOP,pady=0)
+    save_blurredorig.pack(side=TOP,pady=10)
         
     save_tonnd=Button(top,text="Save toon'd image",command=lambda: save5(ReSized6, ImagePath),padx=30,pady=5)
     save_tonnd.configure(background='#3e2945', foreground='white',font=('Arial',16,'bold'))
-    save_tonnd.pack(side=TOP,pady=0)
-        
+    save_tonnd.pack(side=TOP,pady=10)
+   
+    saves=Label(top, text="Select the image you would like to save!", fg='red', bg='#9c9c9c', font=("Helvetica", 16, 'bold'))
+    saves.place(x=15,y=113)   
+    
     plt.show()
     
     
@@ -140,9 +151,7 @@ def save5(ReSized6, ImagePath):
     cv2.imwrite(path, cv2.cvtColor(ReSized6, cv2.COLOR_RGB2BGR))
     I= "Image saved by name " + newName +" at "+ path
     tk.messagebox.showinfo(title=None, message=I)
+ 
 
-upload=Button(top,text="Select image",command=upload,padx=10,pady=5)
-upload.configure(background='#3e2945', foreground='white',font=('Arial',16,'bold'))
-upload.pack(side=TOP,pady=50)
 
 top.mainloop()
