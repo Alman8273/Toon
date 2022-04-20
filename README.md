@@ -24,11 +24,11 @@ So you must use (form these libaries):
 
 Sample image:
 
-![1650476505037.png](image/README/1650476505037.png) (nylander.jpg)
+![1650475070391.png](image/README/sample.png) (nylander.jpg)
 
 The application will display:
 
-![1650476689241.png](image/README/1650476689241.png)
+![1650475778237.png](image/README/6.png)
 
 ---
 
