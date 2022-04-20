@@ -29,7 +29,8 @@ Sample image:
 
 The application will display:
 
-![1650475778237.png](image/README/6.png)
+![image](https://user-images.githubusercontent.com/46537705/164292454-4e8cb38e-a231-40bd-ba3f-7fdc8af849d2.png)
+
 
 ---
 
