@@ -13,7 +13,6 @@ from PIL import ImageTk, Image
 
 top=tk.Tk()
 top.geometry('425x600')
-top.resizable(0,0)
 top.title('Toon')
 top.configure(background='#9c9c9c')
 label=Label(top,background='#CDCDCD', font=('calibri',20,'bold'))
@@ -40,15 +39,15 @@ def cartoonify(ImagePath):
         print("Can not find any image. Choose png or jpeg file")
         sys.exit()
 
-    ReSized1 = cv2.resize(originalmage, (960, 540))
+    ReSized1 = cv2.resize(originalmage, (850, 540))
     
     #converting an image to grayscale
     grayScaleImage= cv2.cvtColor(originalmage, cv2.COLOR_BGR2GRAY)
-    ReSized2 = cv2.resize(grayScaleImage, (960, 540))
+    ReSized2 = cv2.resize(grayScaleImage, (850, 540))
 
     #applying median blur to smoothen an image
     smoothGrayScale = cv2.medianBlur(grayScaleImage, 5)
-    ReSized3 = cv2.resize(smoothGrayScale, (960, 540))
+    ReSized3 = cv2.resize(smoothGrayScale, (850, 540))
     #plt.imshow(ReSized3, cmap='gray')
 
     #retrieving the edges for cartoon effect
@@ -57,16 +56,16 @@ def cartoonify(ImagePath):
         cv2.ADAPTIVE_THRESH_MEAN_C, 
         cv2.THRESH_BINARY, 9, 9)
 
-    ReSized4 = cv2.resize(getEdge, (960, 540))
+    ReSized4 = cv2.resize(getEdge, (850, 540))
     
     #applying bilateral filter to remove noise and keep edge sharp as required
     colorImage = cv2.bilateralFilter(originalmage, 9, 300, 300)
-    ReSized5 = cv2.resize(colorImage, (960, 540))
+    ReSized5 = cv2.resize(colorImage, (850, 540))
    
     #masking edged image with our "BEAUTIFY" image
     cartoonImage = cv2.bitwise_and(colorImage, colorImage, mask=getEdge)
 
-    ReSized6 = cv2.resize(cartoonImage, (960, 540))
+    ReSized6 = cv2.resize(cartoonImage, (850, 540))
     #plt.imshow(ReSized6, cmap='gray')
 
     # Plotting the whole transition
