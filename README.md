@@ -24,7 +24,8 @@ So you must use (form these libaries):
 
 Sample image:
 
-![1650475070391.png](image/README/sample.png) (nylander.jpg)
+![image](https://user-images.githubusercontent.com/46537705/164292099-37afd9ca-4625-488c-b180-6a4babcbfc16.png)
+ (nylander.jpg)
 
 The application will display:
 
