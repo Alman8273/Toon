@@ -33,4 +33,4 @@ The application will display:
 
 ---
 
-##### After this is displayed the user has the option to save any one of the six images they want!
+##### After this is displayed the user has the option to save any one of the 5 new images they want!
