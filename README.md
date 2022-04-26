@@ -31,7 +31,6 @@ The application will display:
 
 ![image](https://user-images.githubusercontent.com/46537705/164292454-4e8cb38e-a231-40bd-ba3f-7fdc8af849d2.png)
 
-
 ---
 
-##### After this is displayed the user has the option to save any one they want!
+##### After this is displayed the user has the option to save any one of the six images they want!
